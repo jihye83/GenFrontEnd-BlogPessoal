@@ -16,7 +16,7 @@ function Login() {
               color="textPrimary"
               component="h3"
               align="center"
-              style={{ fontWeight: "bold" }}
+              className="textos1"
             >
               Entrar
             </Typography>
@@ -55,24 +55,14 @@ function Login() {
               variant="subtitle1"
               gutterBottom
               align="center"
-              style={{ fontWeight: "bold" }}
+              className="textos1"
             >
               Cadastre-se
             </Typography>
           </Box>
         </Box>
       </Grid>
-      <Grid
-        xs={6}
-        style={{
-          backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
-          backgroundRepeat: "no-repet",
-          width: "100vh",
-          minHeight: "100vh",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></Grid>
+      <Grid xs={6} className="imagem"></Grid>
     </Grid>
   );
 }
