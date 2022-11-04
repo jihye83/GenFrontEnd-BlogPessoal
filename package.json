@@ -17,6 +17,7 @@
     "@types/node": "^16.18.2",
     "@types/react": "^17",
     "@types/react-dom": "^17",
+    "axios": "0.21.4",
     "react": "17",
     "react-dom": "^17",
     "react-router-dom": "6",
