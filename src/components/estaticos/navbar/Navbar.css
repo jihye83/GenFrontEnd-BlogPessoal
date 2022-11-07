@@ -3,6 +3,13 @@
     color: white;
 }
 
+.colornavbar{
+    background-color: #1E2F23 !important;
+}
+.colormyname{
+    color: #D2FF28 !important;
+}
+
 .text-decorator-none {
     text-decoration: none;
 }
