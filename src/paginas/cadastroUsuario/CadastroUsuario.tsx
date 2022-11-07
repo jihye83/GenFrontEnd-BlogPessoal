@@ -10,6 +10,7 @@ function CadastroUsuario() {
   let history = useNavigate();
 
   const [confirmarSenha, setConfirmarSenha] = useState<String>("");
+  // state que vai levar os dados para o backend
   const [user, setUser] = useState<User>({
     id: 0,
     nome: '',
@@ -17,7 +18,7 @@ function CadastroUsuario() {
     senha: '',
     foto: ''
   })
-
+  // state que recebera os dados de retorno do backend (devido a senha que volta criptografada)
   const [userResult, setUserResult] = useState<User>({
     id: 0,
     nome: '',
@@ -25,17 +26,11 @@ function CadastroUsuario() {
     senha: '',
     foto: ''
   })
-
-  useEffect(() => {
-    if (userResult.id != 0) {
-      history("/login")
-    }
-  }, [userResult])
-
+  // função para atualizar o campo de confirmação de senha
   function confirmarSenhaHandle(event: ChangeEvent<HTMLInputElement>) {
     setConfirmarSenha(event.target.value)
   }
-
+  // mesma coisa do componente de Login, função que irá atualizar o state junto com o formulário
   function updateModel(event: ChangeEvent<HTMLInputElement>) {
     setUser({
       ...user,
@@ -47,12 +42,28 @@ function CadastroUsuario() {
     event.preventDefault()
 
     if (confirmarSenha == user.senha) {
-      cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-      alert('Usuário cadastrado com sucesso')
+      // cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+      // alert('Usuário cadastrado com sucesso')
+      try {
+        await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
+        alert('Usuário cadastrado com sucesso')
+      } catch (error) {
+        alert('Falha interna ao cadastrar!');
+      }
     } else {
       alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+
+      setUser({ ...user, senha: '' });
+      setConfirmarSenha('');
     }
   }
+
+  // assim que receber o ID de retorno do cadastro do backend, redireciona pro Login.
+  useEffect(() => {
+    if (userResult.id !== 0) {
+      history('/login');
+    }
+  }, [userResult]);
 
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
@@ -65,6 +76,7 @@ function CadastroUsuario() {
 
             <TextField value={user.nome} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} id="nome" label="Nome" variant="outlined" name="nome" margin="normal" fullWidth />
             <TextField value={user.usuario} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} id="usuario" label="Usuário" variant="outlined" name="usuario" margin="normal" fullWidth />
+            <TextField value={user.foto} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} id="foto" label="Url da foto" variant="outlined" name="foto" margin="normal" fullWidth />
             <TextField value={user.senha} onChange={(event: ChangeEvent<HTMLInputElement>) => updateModel(event)} id="senha" label="Senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
             <TextField value={confirmarSenha} onChange={(event: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(event)} id="confirmarSenha" label="Confirmar Senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth />
 
