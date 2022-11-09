@@ -13,3 +13,9 @@ export const login = async (url: any, dados: any, setDados: any) => {
     const resposta = await api.post(url, dados)
     setDados(resposta.data.token)
 }
+
+// busca os dados de temas e postagens
+export const busca = async (url: any, setDado: any, header: any) => {
+    const resposta = await api.get(url, header)
+    setDado(resposta.data)
+}
