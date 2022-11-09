@@ -8,7 +8,7 @@ import { busca } from '../../../services/Service';
 import './ListaTema.css';
 
 function ListaTema() {
-    const [temas, setTemas] = useState<Tema[]>([])
+    const [temas, setTemas] = useState<Tema[]>([]);
     const [token, setToken] = useLocalStorage('token');
     let history = useNavigate();
 
@@ -20,9 +20,9 @@ function ListaTema() {
     }, [token])
 
     async function getTema() {
-        await busca("/tema", setTemas, {
+        await busca("/temas", setTemas, {
             headers: {
-                'Authorization': token
+                Authorization : token
             }
         })
     }
