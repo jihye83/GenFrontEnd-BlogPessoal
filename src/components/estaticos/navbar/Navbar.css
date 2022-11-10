@@ -3,10 +3,18 @@
     color: white;
 }
 
-.colornavbar{
+.navbar {
     background-color: #1E2F23 !important;
+    display: flex;
+    justify-content: space-between;
 }
-.colormyname{
+
+.text {
+    display: flex;
+    gap: 2rem;
+}
+
+.colormyname {
     color: #D2FF28 !important;
 }
 
