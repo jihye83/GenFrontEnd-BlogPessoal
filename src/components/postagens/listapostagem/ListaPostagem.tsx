@@ -17,6 +17,10 @@ function ListaPostagem() {
     )
     let history = useNavigate();
 
+    const userId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    )
+
     useEffect(() => {
         if (token == '') {
             toast.error('Você precisa estar logado', {
@@ -69,8 +73,11 @@ function ListaPostagem() {
                                 {/* Mostar data e hora: {new Date(Date.parse(postagem.data)).toLocaleString()} <br />
               Mostrar apenas hora: {new Date(Date.parse(postagem.data)).toLocaleTimeString()} */}
                             </Typography>
+                            <Typography variant="body2" component="p">
+                                Autor: {postagem.usuario?.nome}
+                            </Typography>
                         </CardContent>
-                        <CardActions>
+                        {postagem.usuario?.id === +userId && <CardActions>
                             <Box display="flex" justifyContent="center" mb={1.5}>
 
                                 <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none" >
@@ -88,7 +95,7 @@ function ListaPostagem() {
                                     </Box>
                                 </Link>
                             </Box>
-                        </CardActions>
+                        </CardActions>}
                     </Card>
                 </Box>
             ))
