@@ -7,6 +7,9 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import "./Navbar.css";
 import useLocalStorage from "react-use-localstorage";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,19 +75,24 @@ const useStyles = makeStyles((theme) => ({
 );
 
 export default function Navbar() {
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState['tokens']>(
+    (state) => state.tokens
+  )
   let history = useNavigate();
 
+  const dispatch = useDispatch();
+
   function goLogout() {
-    setToken('');
+    dispatch(addToken(''));
     alert("Usuário deslogado!");
     history('/login');
   }
 
-  const classes = useStyles();
-
-  return (
-    <div className={classes.root}>
+  var navbarComponent;
+  const classes= useStyles();
+  
+  if (token !== '') {
+    navbarComponent = <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className="navbar">
 
@@ -98,21 +106,21 @@ export default function Navbar() {
 
           <Box className="text" display="flex" justifyContent="start">
             <Link to='/postagens' className="text-decorator-none">
-                <Typography className="cursor" variant="h6">
-                  Postagens
-                </Typography>
+              <Typography className="cursor" variant="h6">
+                Postagens
+              </Typography>
             </Link>
 
-            <Link to='/temas' className="text-decorator-none">         
-                <Typography className="cursor" variant="h6" >
-                  Temas
-                </Typography>
+            <Link to='/temas' className="text-decorator-none">
+              <Typography className="cursor" variant="h6" >
+                Temas
+              </Typography>
             </Link>
 
-            <Link to='/formularioTema' className="text-decorator-none">    
-                <Typography className="cursor"  variant="h6">
-                  Cadastrar tema
-                </Typography> 
+            <Link to='/formularioTema' className="text-decorator-none">
+              <Typography className="cursor" variant="h6">
+                Cadastrar tema
+              </Typography>
             </Link>
 
             <div className={classes.search}>
@@ -138,6 +146,11 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
     </div>
+  }
 
+  return (
+    <>
+      {navbarComponent}
+    </>
   );
 }

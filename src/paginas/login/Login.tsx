@@ -1,17 +1,18 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { Grid, Typography, TextField, Button } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Service";
 import { Box } from "@mui/material";
 import "./Login.css";
 import UserLogin from "../../models/UserLogin";
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
 
 function Login() {
   let history = useNavigate();
-
-  const [token, setToken] = useLocalStorage('token');
-
+  const dispatch = useDispatch();
+  // const [token, setToken] = useLocalStorage('token');
+  const [token, setToken] = useState('');
   const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
     nome: '',
@@ -22,30 +23,27 @@ function Login() {
   })
 
   function updateModel(event: ChangeEvent<HTMLInputElement>) {
-
     setUserLogin({
       ...userLogin,
       [event.target.name]: event.target.value
     })
-
   }
 
   useEffect(() => {
     if (token != '') {
+      dispatch(addToken(token));
       history('/home');
     }
   }, [token]);
 
   async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
-
     try {
       await login(`/usuarios/logar`, userLogin, setToken)
       alert('Usuário logado com sucesso!');
     } catch (error) {
       alert('Dados do usuário incorreto.');
     }
-
   }
 
   return (
