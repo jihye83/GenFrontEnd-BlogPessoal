@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import "./Navbar.css";
-import useLocalStorage from "react-use-localstorage";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { addToken } from "../../../store/tokens/actions";

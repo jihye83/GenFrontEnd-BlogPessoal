@@ -47,49 +47,51 @@ function ListaPostagem() {
 
     return (
         <>
-            {
-                postagens.map(postagem => (
-                    <Box m={2} >
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
-                                    Postagens
-                                </Typography>
-                                <Typography variant="h5" component="h2">
-                                    {postagem.titulo}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {postagem.texto}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {postagem.tema?.descricao}
-                                </Typography>
-                                <Typography>
-                                    {new Date(Date.parse(postagem.data)).toLocaleDateString('pt-br')}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Box display="flex" justifyContent="center" mb={1.5}>
+            {postagens.length === 0 && <span className="loader">L &nbsp; ading</span>}
+            {postagens.map(postagem => (
+                <Box m={2} >
+                    <Card variant="outlined" >
+                        <CardContent>
+                            <Typography color="textSecondary" gutterBottom>
+                                Postagens
+                            </Typography>
+                            <Typography variant="h5" component="h2">
+                                {postagem.titulo}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                {postagem.texto}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                {postagem.tema?.descricao}
+                            </Typography>
+                            <Typography>
+                                {new Date(Date.parse(postagem.data)).toLocaleDateString('pt-br')}
+                                {/* Mostar data e hora: {new Date(Date.parse(postagem.data)).toLocaleString()} <br />
+              Mostrar apenas hora: {new Date(Date.parse(postagem.data)).toLocaleTimeString()} */}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Box display="flex" justifyContent="center" mb={1.5}>
 
-                                    <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none" >
-                                        <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                                                atualizar
-                                            </Button>
-                                        </Box>
-                                    </Link>
-                                    <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
-                                                deletar
-                                            </Button>
-                                        </Box>
-                                    </Link>
-                                </Box>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                ))
+                                <Link to={`/formularioPostagem/${postagem.id}`} className="text-decorator-none" >
+                                    <Box mx={1}>
+                                        <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                            atualizar
+                                        </Button>
+                                    </Box>
+                                </Link>
+                                <Link to={`/deletarPostagem/${postagem.id}`} className="text-decorator-none">
+                                    <Box mx={1}>
+                                        <Button variant="contained" size='small' color="secondary">
+                                            deletar
+                                        </Button>
+                                    </Box>
+                                </Link>
+                            </Box>
+                        </CardActions>
+                    </Card>
+                </Box>
+            ))
             }
         </>
     )
