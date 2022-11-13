@@ -109,7 +109,8 @@ export default function Navbar() {
           <Box className="cursor">
             <Link to='/home' className="text-decorator-none">
               <Typography className="colormyname" variant="h5" color="inherit">
-                JIHYEblog
+                <img src="https://i.imgur.com/yIgEkkx.png" alt="Nina Pokedex"  width="250px" height="100px"/>
+                
               </Typography>
             </Link>
           </Box>

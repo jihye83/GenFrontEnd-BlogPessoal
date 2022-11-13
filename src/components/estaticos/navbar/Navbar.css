@@ -1,10 +1,10 @@
 .cursor {
     cursor: pointer;
-    color: white;
+    color: black;
 }
 
 .navbar {
-    background-color: #1E2F23 !important;
+    background-color: white !important;
     display: flex;
     justify-content: space-between;
 }
@@ -15,7 +15,7 @@
 }
 
 .colormyname {
-    color: #D2FF28 !important;
+    color: red !important;
 }
 
 .text-decorator-none {

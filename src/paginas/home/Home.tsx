@@ -38,10 +38,10 @@ function Home() {
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20}>
             <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="titulo">
-              Welcome to my BLOG!
+              Olá treinadores !
             </Typography>
             <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">
-              expresse aqui os seus sonhos e pensamentos!
+              Compartilhe seus conhecimentos e suas descobertas de pokemons !
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">
@@ -56,7 +56,7 @@ function Home() {
           </Box>
         </Grid>
         <Grid item xs={6}>
-          <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px"
+          <img src="https://i.imgur.com/o5TBtmx.jpg" alt="" width="500px" height="500px"
           />
         </Grid>
         <Grid xs={12} className="postagens">
