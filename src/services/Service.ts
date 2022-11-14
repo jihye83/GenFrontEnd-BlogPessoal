@@ -8,10 +8,10 @@ export const cadastroUsuario = async (url: any, dados: any, setDados: any) => {
     const resposta = await api.post(url, dados)
     setDados(resposta.data)
 }
-
+//tirei o resposta.data.token -> o token pq agora é por todo dado
 export const login = async (url: any, dados: any, setDados: any) => {
     const resposta = await api.post(url, dados)
-    setDados(resposta.data.token)
+    setDados(resposta.data)
 }
 
 // busca os dados de temas e postagens

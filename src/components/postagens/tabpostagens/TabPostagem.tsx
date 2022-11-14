@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { TabContext, TabPanel } from '@material-ui/lab';
 import ListaPostagem from '../listapostagem/ListaPostagem';
 import './TabPostagem.css';
+import CarouselPost from '../carouselPost/CarouselPost';
 
 function TabPostagem() {
     const [value, setValue] = useState('1')
@@ -21,7 +22,7 @@ function TabPostagem() {
                 </AppBar>
                 <TabPanel value="1" >
                     <Box display="flex" flexWrap="wrap" justifyContent="center">
-                        <ListaPostagem />
+                        <CarouselPost />
                     </Box>
                 </TabPanel>
                 <TabPanel value="2">
