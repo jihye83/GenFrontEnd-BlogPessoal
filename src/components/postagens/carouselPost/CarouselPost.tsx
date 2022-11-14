@@ -114,7 +114,7 @@ function CarouselPost() {
 
     return (
         <>
-            
+            {loading}
             <AliceCarousel
                 items={carousel}
                 responsive={responsive}
