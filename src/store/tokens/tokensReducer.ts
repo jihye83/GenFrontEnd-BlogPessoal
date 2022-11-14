@@ -1,23 +1,27 @@
 import { Action } from "./actions";
 
 export interface TokenState {
-  tokens: string,
-  id: string
+  tokens: string;
+  id: string;
 }
 //começa vazio
 const initialState = {
-  tokens: '',
-  id: ''
-}
+  tokens: "",
+  id: "",
+};
 
-export const tokensReducer = (state: TokenState = initialState, action: Action) => {
+export const tokensReducer = (
+  state: TokenState = initialState,
+  action: Action
+) => {
   switch (action.type) {
     case "ADD_TOKEN": {
-      return {tokens: action, id: state.id}
+      return { tokens: action.payload, id: state.id };
     }
     case "ADD_ID": {
-      return {id: action.payload, tokens: state.tokens}
+      return { id: action.payload, tokens: state.tokens };
     }
-    default: return state
+    default:
+      return state;
   }
-}
+};
