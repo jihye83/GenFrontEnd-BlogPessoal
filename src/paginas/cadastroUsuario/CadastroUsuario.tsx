@@ -43,8 +43,7 @@ function CadastroUsuario() {
     event.preventDefault()
 
     if (confirmarSenha == user.senha) {
-      // cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-      // alert('Usuário cadastrado com sucesso')
+     
       try {
         await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult);
         toast.success('Usuário cadastrado com sucesso!', {
@@ -85,7 +84,7 @@ function CadastroUsuario() {
     }
   }
 
-  // assim que receber o ID de retorno do cadastro do backend, redireciona pro Login.
+ 
   useEffect(() => {
     if (userResult.id !== 0) {
       history('/login');
