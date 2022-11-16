@@ -1,5 +1,17 @@
-.titulo {
+.meunome {
     font-weight: bold;
+}
+.assunto {
+    gap: 4rem;
+    margin-left: 10em;
+    margin-right: 10em;
+}
+.foto{
+    /* display: inline-block; */
+    
+    border-radius: 50%;
+    border:8px solid #D2FF28;
+    
 }
 
 .barraCor{

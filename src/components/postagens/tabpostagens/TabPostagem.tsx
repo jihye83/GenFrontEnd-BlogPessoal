@@ -17,7 +17,7 @@ function TabPostagem() {
                 <AppBar className='barraCor' position="static">
                     <Tabs centered indicatorColor="secondary" onChange={handleChange}>
                         <Tab label="Todas as postagens" value="1" />
-                        <Tab label="Sobre-nós" value="2" />
+                        <Tab label="Sobre Mim" value="2" />
                     </Tabs>
                 </AppBar>
                 <TabPanel value="1" >
@@ -25,9 +25,21 @@ function TabPostagem() {
                         <CarouselPost />
                     </Box>
                 </TabPanel>
-                <TabPanel value="2">
-                    <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="titulo">Sobre-nós</Typography>
-                    <Typography variant="body1" gutterBottom color="textPrimary" align="justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos ut eveniet natus totam et, voluptate dicta tempore alias, odio nobis non eius cupiditate minima inventore pariatur! Ipsum itaque consectetur voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo velit consequuntur suscipit fugiat, nam quis quod quaerat veritatis et, vel ratione beatae, facere neque! Quo animi porro voluptate saepe deleniti? Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore adipisci, officia aut quidem dolorum deserunt iure dolorem doloribus velit nobis quas consequatur at ullam odit, nesciunt est nulla nihil excepturi!</Typography>
+                <TabPanel className='fundo' value="2">
+                    <Typography variant="h4" gutterBottom color="textPrimary" component="h5" align="center" className="meunome">Ji hye Koo</Typography>
+                    <Box className='assunto' alignItems='center' display="flex" justifyContent='center'>
+                        <img className='foto' src="https://i.imgur.com/T3RvUYP.jpg" alt="" width="180" />
+                        <Typography variant="body1" gutterBottom color="textPrimary" align="justify">
+                            Sou coreana, formada em design e em Analise Desenvolvimento de Sistemas.
+                            No momento estou fazendo bootcamp da Generation Brasil, Java FullStack.
+                            Gosto de ler livro, ver filme, viajar e conhecer lugares novos. Tenho um
+                            cachorrinho que se chama CHEETOS. Mas o que mais eu gosto mesmo é CODAR.
+                            Programar traz muito desafios e problemas, mas quando você consegue finalizar
+                            e solucionar os problemas me traz uma alegria e satisfação. Acho que é isso
+                            que me fez gostar e fixar na área de tecnologia. O meu sonho agora é poder
+                            trabalhar na empresa, aprender e poder ajudar a empresa.
+                        </Typography>
+                    </Box>
                 </TabPanel>
             </TabContext>
         </>

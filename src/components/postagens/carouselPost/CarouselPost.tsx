@@ -116,6 +116,7 @@ function CarouselPost() {
         <>
             {loading}
             <AliceCarousel
+                mouseTracking
                 items={carousel}
                 responsive={responsive}
                 disableDotsControls={true}
