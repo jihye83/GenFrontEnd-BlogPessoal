@@ -37,7 +37,7 @@ function TabPostagem() {
                             Programar traz muito desafios e problemas, mas quando você consegue finalizar
                             e solucionar os problemas me traz uma alegria e satisfação. Acho que é isso
                             que me fez gostar e fixar na área de tecnologia. O meu sonho agora é poder
-                            trabalhar na empresa, aprender e poder ajudar a empresa.
+                            trabalhar na empresa, aprender e poder ajudar a empresa...
                         </Typography>
                     </Box>
                 </TabPanel>
